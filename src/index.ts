@@ -6,4 +6,7 @@ app.get("/", (c) => {
   return c.text("Welcome to ScholarCore Server!");
 });
 
-export default app;
+export default {
+  port: 2709,
+  fetch: app.fetch,
+};
