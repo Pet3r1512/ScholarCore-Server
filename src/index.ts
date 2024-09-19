@@ -1,12 +1,12 @@
 import { Hono } from "hono";
-import prisma from "./db";
+import api from "./routes/api";
 
 const app = new Hono();
 
 app.get("/", async (c) => {
-  const count = await prisma.user.count();
-  return c.text(`Welcome to ScholarCore Server! ${count}`);
+  return c.text("Welcome to ScholarCore Server!");
 });
+app.route("/api", api);
 
 export default {
   port: 2709,
